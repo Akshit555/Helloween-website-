@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Responsive Halloween E-Commerce Website Design</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+:root{
+    --main-color:#ef7819;
+    --black:#141215;
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+    transition: width none;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+}
+
+html::-webkit-scrollbar{
+    width: 1rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: var(--black);
+}
+
+html::-webkit-scrollbar-thumb{
+    background: var(--main-color);
+}
+
+body{
+    overflow-x: hidden;
+    background: var(--black);
+}
+
+section{
+    padding:2rem 9%;
+}
+
+.heading{
+    font-size: 4rem;
+    text-align: center;
+    padding-bottom: 2rem;
+    color:#fff;
+}
+
+.heading span{
+    color:var(--main-color);
+}
+
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding:.8rem 3rem;
+    font-size: 1.7rem;
+    background:#fff;
+    font-weight: 500;
+    color:var(--black);
+    cursor: pointer;
+}
+
+.btn:hover{
+    background: var(--main-color);
+    color:#fff;
+    letter-spacing: .1rem;
+}
+
+.header{
+    position: fixed;
+    top:0; left:0; right:0;
+    z-index: 1000;
+    background: rgba(0,0,0,.3);
+    padding:3rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .logo{
+    font-size: 2.5rem;
+    color:#fff;
+    font-weight: bolder;
+}
+
+.header .logo i{
+    padding-right: .5rem;
+    color:var(--main-color);
+    animation: floating 3s linear infinite;
+}
+
+@keyframes floating{
+    0%, 100%{
+        transform: translateY(0rem);
+    }
+    50%{
+        transform: translateY(-1rem);
+    }
+}
+
+.header .navbar a{
+    font-size: 1.7rem;
+    color:#fff;
+    margin:0 1rem;
+}
+
+.header .navbar a.active,
+.header .navbar a:hover{
+    color:var(--main-color);
+}
+
+.header .icons a,
+.header .icons div{
+    font-size: 2.5rem;
+    color:#fff;
+    margin-left: 2rem;
+    cursor: pointer;
+}
+
+.header .icons a:hover,
+.header .icons div:hover{
+    color:var(--main-color);
+}
+
+#menu-btn{
+    display: none;
+}
+
+.header .search-form{
+    position: absolute;
+    top:115%; right:-105%;
+    background: #fff;
+    width:50rem;
+    height:5rem;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+}
+
+.header .search-form.active{
+    right:2rem;
+    opacity: 1;
+    transition: .4s linear;
+}
+
+.header .search-form input{
+    width:100%;
+    padding:0 1.5rem;
+    font-size: 1.6rem;
+    color:var(--black);
+    text-transform: none;
+}
+
+.header .search-form label{
+    font-size: 2.5rem;
+    padding-right: 1.5rem;
+    color: var(--black);
+    cursor: pointer;
+}
+
+.header .search-form label:hover{
+    color:var(--main-color);
+}
+
+.header.active{
+    padding:2rem 9%;
+    background: #222;
+}
+
+.home{
+    padding:0;
+}
+
+.home .home-slider .box{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:2rem;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.home .home-slider .box .content{
+    text-align: center;
+}
+
+.home .home-slider .box .content h3{
+    font-size: 5rem;
+    color:#fff;
+    transition-delay: .2s;
+}
+
+.home .home-slider .box .content p{
+    font-size: 3rem;
+    color:#fff;
+    transition-delay: .4s;
+    padding:1rem 0;
+}
+
+.home .home-slider .box .content .button{
+    transition-delay: .6s;
+}
+
+.home .home-slider .box .content > *{
+    transform: translateY(2rem);
+    opacity: 0;
+}
+
+.home .home-slider .swiper-slide-active .content > *{
+    transform: translateY(0rem);
+    opacity: 1;
+}
+
+.home .home-slider .swiper-button-next{
+    right: 4rem;
+    color:#fff;
+    opacity: 0;
+}
+
+.home .home-slider .swiper-button-prev{
+    left: 4rem;
+    color:#fff;
+    opacity: 0;
+}
+
+.home .home-slider .swiper-button-next:hover,
+.home .home-slider .swiper-button-prev:hover{
+    color:var(--main-color);
+}
+
+.home .home-slider:hover .swiper-button-next,
+.home .home-slider:hover .swiper-button-prev{
+    opacity: 1;
+}
+
+.products .products-slider .box{
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.products .products-slider .box .image{
+    height:40rem;
+    width:100%;
+    overflow: hidden;
+}
+
+.products .products-slider .box .image img{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+}
+
+.products .products-slider .box:hover .image img{
+    transform: scale(1.2);
+}
+
+.products .products-slider .box .icons{
+    position: absolute;
+    top: 0; right: -6rem;
+    z-index: 1;
+}
+
+.products .products-slider .box:hover .icons{
+    right: 1rem;
+}
+
+.products .products-slider .box .icons a{
+    height: 4.5rem;
+    width: 4.5rem;
+    line-height: 4.5rem;
+    border-radius: 50%;
+    font-size: 2rem;
+    color:var(--black);
+    background: #fff;
+    margin-top: 1rem;
+    display: block;
+}
+
+.products .products-slider .box .icons a:hover{
+    background: var(--main-color);
+    color:#fff;
+}
+
+.products .products-slider .box .content{
+    padding: 1rem 0;
+}
+
+.products .products-slider .box .content h3{
+    font-size: 2.5rem;
+    font-weight: normal;
+    color:#fff;
+}
+
+.products .products-slider .box .content .price{
+    font-size: 2rem;
+    font-weight: bolder;
+    color:#fff;
+}
+
+.products .products-slider .box .content .price span{
+    font-size: 1.5rem;
+    font-weight: normal;
+    color:var(--main-color);
+    text-decoration: line-through;
+}
+
+.about{
+    background: url(about-bt.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.about .content{
+    padding:13rem 0;
+    max-width: 50rem;
+}
+
+.about .content h3{
+    font-size: 3rem;
+    color:var(--main-color);
+}
+
+.about .content p{
+    font-size: 1.5rem;
+    color:#fff;
+    line-height: 2;
+    padding: 1rem 0;
+}
+
+.arrivals .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:1.5rem;
+}
+
+.arrivals .box-container .box{
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+.arrivals .box-container .box .image{
+    height:40rem;
+    width:100%;
+    overflow: hidden;
+}
+.arrivals .box-container .box .image img{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+}
+.arrivals .box-container .box:hover .image img{
+    transform: scale(1.2);
+}
+.arrivals .box-container .box .icons{
+    position: absolute;
+    top: 0; right: -6rem;
+    z-index: 1;
+}
+.arrivals .box-container .box:hover .icons{
+    right: 1rem;
+}
+.arrivals .box-container .box .icons a{
+    height: 4.5rem;
+    width: 4.5rem;
+    line-height: 4.5rem;
+    border-radius: 50%;
+    font-size: 2rem;
+    color:var(--black);
+    background: #fff;
+    margin-top: 1rem;
+    display: block;
+}
+.arrivals .box-container .box .icons a:hover{
+    background: var(--main-color);
+    color:#fff;
+}
+.arrivals .box-container .box .content{
+    padding: 1rem 0;
+}
+.arrivals .box-container .box .content h3{
+    font-size: 2.5rem;
+    font-weight: normal;
+    color:#fff;
+}
+.arrivals .box-container .box .content .price{
+    font-size: 2rem;
+    font-weight: bolder;
+    color:#fff;
+}
+.arrivals .box-container .box .content .price span{
+    font-size: 1.5rem;
+    font-weight: normal;
+    color:var(--main-color);
+    text-decoration: line-through;
+}
+
+.contact .row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contact .row .map{
+    flex:1 1 42rem;
+    width: 100%;
+}
+
+.contact .row form{
+    flex:1 1 42rem;
+    padding: 2rem;
+    text-align: center;
+    background:#222;
+}
+
+.contact .row form h3{
+    font-size: 3rem;
+    padding-bottom: 1rem;
+    color:var(--main-color);
+}
+
+.contact .row form .box{
+    width:100%;
+    padding:1rem 1.2rem;
+    background:var(--black);
+    color:#fff;
+    font-size: 1.6rem;
+    text-transform: none;
+    margin: .7rem 0;
+}
+
+.contact .row form textarea{
+    height:15rem;
+    resize: none;
+}
+
+.blogs .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:1.5rem;
+}
+
+.blogs .box-container .box .image{
+    height:25rem;
+    width:100%;
+    overflow: hidden;
+}
+
+.blogs .box-container .box .image img{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+}
+
+.blogs .box-container .box:hover .image img{
+    transform: scale(1.2);
+}
+
+.blogs .box-container .box .content{
+    padding:2rem;
+    background: #222;
+}
+
+.blogs .box-container .box .content h3{
+    font-size: 2.5rem;
+    color:var(--main-color);
+    line-height: 1.8;
+}
+
+.blogs .box-container .box .content p{
+    font-size: 1.5rem;
+    color:#fff;
+    line-height: 2;
+}
+
+.blogs .box-container .box .content .icons{
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: .1rem solid #fff3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.blogs .box-container .box .content .icons a{
+    font-size: 1.4rem;
+    color:var(--main-color);
+}
+
+.blogs .box-container .box .content .icons a:hover{
+    color:#fff;
+}
+
+.blogs .box-container .box .content .icons a i{
+    padding-right: .5rem;
+}
+
+.footer{
+    background: #000;
+}
+
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap:1.5rem;
+}
+
+.footer .box-container .box h3{
+    font-size: 2.2rem;
+    color:#fff;
+    padding:1rem 0;
+}
+
+.footer .box-container .box a{
+    font-size: 1.4rem;
+    color:#aaa;
+    padding:1rem 0;
+    display: block;
+}
+
+.footer .box-container .box a:hover{
+    color:var(--main-color);
+}
+
+.footer .box-container .box a i{
+    padding-right: .5rem;
+    color:var(--main-color);
+}
+
+.footer .box-container .box a:hover i{
+    padding-right: 2rem;
+    color:#fff;
+}
+
+.footer .credit{
+    padding:1rem;
+    padding-top: 2.5rem;
+    margin-top: 2.5rem;
+    border-top:.1rem solid #fff3;
+    font-size: 2rem;
+    color:#aaa;
+    text-align: center;
+}
+
+.footer .credit span{
+    color:var(--main-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* media queries  */
+
+@media (max-width:991px){
+
+    html{
+        font-size:55%;
+    }
+
+    .header{
+        padding:2rem;
+    }
+
+    .header.active{
+        padding:2rem;
+    }
+
+    section{
+        padding:2rem;
+    }
+
+}
+
+@media (max-width:768px){
+
+    #menu-btn{
+        display: inline-block;
+    }
+
+    .header .search-form{
+        width:90%;
+    }
+
+    .header .navbar{
+        position: absolute;
+        top:99%; left:0; right:0;
+        background:#222;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    .header .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .header .navbar a{
+        display: block;
+        margin:2rem;
+        font-size: 2rem;
+    }
+
+}
+
+@media (max-width:450px){
+
+    html{
+        font-size:50%;
+    }
+
+    .home .home-slider .swiper-button-next,
+    .home .home-slider .swiper-button-prev{
+        display: none;
+    }
+
+}
+</style>
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo"> <i class="fas fa-ghost"></i> logo </a>
+
+    <nav class="navbar">
+        <a href="#home" class="active">home</a>
+        <a href="#products">products</a>
+        <a href="#about">about</a>
+        <a href="#arrivals">arrivals</a>
+        <a href="#contact">contact</a>
+        <a href="#blogs">blogs</a>
+    </nav>
+
+    <div class="icons">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <div id="search-btn" class="fas fa-search"></div>
+        <a href="#" class="fas fa-shopping-cart"></a>
+        <a href="#" class="fas fa-user"></a>
+    </div>
+
+    <form action="" class="search-form">
+        <input type="search" placeholder="search here..." id="input-box">
+        <label for="input-box" class="fas fa-search"></label>
+    </form>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="swiper home-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box" style="background: url(image/home-slider-1.jpg);">
+                <div class="content">
+                    <h3>happy Halloween</h3>
+                    <p>special discount</p>
+                    <div class="button">
+                        <a href="#" class="btn">shop now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide box" style="background: url(image/home-slider-2.jpg);">
+                <div class="content">
+                    <h3>upto 30% off</h3>
+                    <p>on all costumes</p>
+                    <div class="button">
+                        <a href="#" class="btn">shop now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide box" style="background: url(image/home-slider-3.jpg);">
+                <div class="content">
+                    <h3>limited offer</h3>
+                    <p>don't miss it</p>
+                    <div class="button">
+                        <a href="#" class="btn">shop now</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- products section starts  -->
+
+<section class="products" id="products">
+
+    <h1 class="heading"> our <span>products</span> </h1>
+
+    <div class="swiper products-slider" data-aos="zoom-in">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                    <a href="#" class="fas fa-share"></a>
+                </div>
+                <div class="image">
+                    <img src="product-1.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>latest products</h3>
+                    <div class="price"> $79.99 <span>$95.99</span> </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                    <a href="#" class="fas fa-share"></a>
+                </div>
+                <div class="image">
+                    <img src="product-2.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>latest products</h3>
+                    <div class="price"> $79.99 <span>$95.99</span> </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                    <a href="#" class="fas fa-share"></a>
+                </div>
+                <div class="image">
+                    <img src="product-3.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>latest products</h3>
+                    <div class="price"> $79.99 <span>$95.99</span> </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                    <a href="#" class="fas fa-share"></a>
+                </div>
+                <div class="image">
+                    <img src="product-4.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>latest products</h3>
+                    <div class="price"> $79.99 <span>$95.99</span> </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                    <a href="#" class="fas fa-share"></a>
+                </div>
+                <div class="image">
+                    <img src="product-5.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>latest products</h3>
+                    <div class="price"> $79.99 <span>$95.99</span> </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- products section ends -->
+
+<!-- about section starts  -->
+
+<section class="about" id="about">
+
+    <div class="content" data-aos="fade-right">
+        <h3>about us</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, adipisci neque! Veritatis laboriosam odio corporis, quo fugit architecto. Veritatis in dicta qui odit soluta sequi ipsam facere eum numquam! Obcaecati.</p>
+        <a href="#" class="btn">read more</a>
+    </div>
+
+</section>
+
+<!-- about section ends -->
+
+<!-- arrivals section starts  -->
+
+<section class="arrivals" id="arrivals">
+
+    <h1 class="heading"> new <span>arrivals</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box" data-aos="fade-right">
+            <div class="icons">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <a href="#" class="fas fa-share"></a>
+            </div>
+            <div class="image">
+                <img src="arrival-1.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>latest products</h3>
+                <div class="price"> $79.99 <span>$95.99</span> </div>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-down">
+            <div class="icons">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <a href="#" class="fas fa-share"></a>
+            </div>
+            <div class="image">
+                <img src="arrival-2.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>latest products</h3>
+                <div class="price"> $79.99 <span>$95.99</span> </div>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-left">
+            <div class="icons">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <a href="#" class="fas fa-share"></a>
+            </div>
+            <div class="image">
+                <img src="arrival-3.gif" alt="">
+            </div>
+            <div class="content">
+                <h3>latest products</h3>
+                <div class="price"> $79.99 <span>$95.99</span> </div>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-right">
+            <div class="icons">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <a href="#" class="fas fa-share"></a>
+            </div>
+            <div class="image">
+                <img src="arrival-4.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>latest products</h3>
+                <div class="price"> $79.99 <span>$95.99</span> </div>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-down">
+            <div class="icons">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <a href="#" class="fas fa-share"></a>
+            </div>
+            <div class="image">
+                <img src="arrival-5.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>latest products</h3>
+                <div class="price"> $79.99 <span>$95.99</span> </div>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-left">
+            <div class="icons">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <a href="#" class="fas fa-share"></a>
+            </div>
+            <div class="image">
+                <img src="arrival-6.gif" alt="">
+            </div>
+            <div class="content">
+                <h3>latest products</h3>
+                <div class="price"> $79.99 <span>$95.99</span> </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- arrivals section ends -->
+
+<!-- contact section starts  -->
+
+<section class="contact" id="contact">
+
+    <h1 class="heading"> <span>contact</span> us </h1>
+
+    <div class="row">
+
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30153.788252261566!2d72.82321484621745!3d19.141690214227783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b63aceef0c69%3A0x2aa80cf2287dfa3b!2sJogeshwari%20West%2C%20Mumbai%2C%20Maharashtra%20400047!5e0!3m2!1sen!2sin!4v1632569975602!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+
+        <form action="">
+            <h3 data-aos="zoom-in">tell us something!</h3>
+            <input data-aos="zoom-in" type="text" placeholder="your name" class="box">
+            <input data-aos="zoom-in" type="email" placeholder="your email" class="box">
+            <input data-aos="zoom-in" type="number" placeholder="your number" class="box">
+            <textarea data-aos="zoom-in" placeholder="your message" class="box" cols="30" rows="10"></textarea>
+            <input data-aos="zoom-in" type="submit" value="send message" class="btn">
+        </form>
+
+    </div>
+
+</section>
+
+<!-- contact section ends -->
+
+<!-- blogs section starts  -->
+
+<section class="blogs" id="blogs">
+
+    <h1 class="heading"> our <span>blogs</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box" data-aos="fade-right">
+            <div class="image">
+                <img src="blog-1.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Believe in the Magic of Halloween.</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum, harum!</p>
+                <a href="#" class="btn">read more</a>
+                <div class="icons">
+                    <a href="#"> <i class="fas fa-calendar"></i> 1st may, 2021 </a>
+                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-down">
+            <div class="image">
+                <img src="blog-2.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Believe in the Magic of Halloween.</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum, harum!</p>
+                <a href="#" class="btn">read more</a>
+                <div class="icons">
+                    <a href="#"> <i class="fas fa-calendar"></i> 1st may, 2021 </a>
+                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-left">
+            <div class="image">
+                <img src="blog-3.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Believe in the Magic of Halloween.</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum, harum!</p>
+                <a href="#" class="btn">read more</a>
+                <div class="icons">
+                    <a href="#"> <i class="fas fa-calendar"></i> 1st may, 2021 </a>
+                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- blogs section ends -->
+
+<!-- footer section starts  -->
+
+<section class="footer" id="footer">
+
+    <div class="box-container">
+
+        <div class="box" data-aos="fade-right">
+            <h3>our branches</h3>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> india </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> USA </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> russia </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> france </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> japan </a>
+        </div>
+
+        <div class="box" data-aos="fade-down">
+            <h3>quick links</h3>
+            <a href="#"> <i class="fas fa-arrow-right"></i> home </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> products </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> about </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> arrivals </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> contact </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> blogs </a>
+        </div>
+
+        <div class="box" data-aos="fade-up">
+            <h3>contact us</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
+            <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
+            <a href="#"> <i class="fas fa-envelope"></i> shaikhanas@gmail.com </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> mumbai, india - 400104 </a>
+        </div>
+
+        <div class="box" data-aos="fade-left">
+            <h3>contact us</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+        </div>
+
+    </div>
+
+    <div class="credit"> created by <span>mr. web designer</span> | all rights reserved </div>
+
+</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file links  -->
+<script src="js/script.js"></script>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+      delay:400,
+      duration:800
+  });
+
+let searchForm = document.querySelector('.search-form');
+
+document.querySelector('#search-btn').onclick = () =>{
+  searchForm.classList.toggle('active');
+  navbar.classList.remove('active');
+}
+
+let navbar = document.querySelector('.navbar');
+
+document.querySelector('#menu-btn').onclick = () =>{
+  navbar.classList.toggle('active');
+  searchForm.classList.remove('active');
+}
+
+// scroll spy 
+let section = document.querySelectorAll('section');
+let navLinks = document.querySelectorAll('.header .navbar a');
+
+window.onscroll = () =>{
+  searchForm.classList.remove('active');
+  navbar.classList.remove('active');
+
+  if(window.scrollY > 0){
+    document.querySelector('.header').classList.add('active');
+  }else{
+    document.querySelector('.header').classList.remove('active');
+  }
+
+  section.forEach(sec =>{
+    let top = window.scrollY;
+    let offset = sec.offsetTop - 200;
+    let height = sec.offsetHeight;
+    let id = sec.getAttribute('id');
+
+    if(top >= offset && top < offset + height){
+      navLinks.forEach(link =>{
+        link.classList.remove('active');
+        document.querySelector('.header .navbar a[href*='+id+']').classList.add('active');
+      });
+    };
+
+  });
+
+};
+
+window.onload = () =>{
+  if(window.scrollY > 0){
+    document.querySelector('.header').classList.add('active');
+  }else{
+    document.querySelector('.header').classList.remove('active');
+  }
+}
+
+var swiper = new Swiper(".home-slider", {
+  spaceBetween: 20,
+  effect: "fade",
+  loop:true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  centeredSlides: true,
+  autoplay: {
+    delay: 9500,
+    disableOnInteraction: false,
+  },
+});
+
+var swiper = new Swiper(".products-slider", {
+  spaceBetween: 20,
+  loop:true,
+  centeredSlides: true,
+  autoplay: {
+    delay: 9500,
+    disableOnInteraction: false,
+  },
+  grabCursor:true,
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    991: {
+      slidesPerView: 3,
+    },
+  },
+});
+</script>
+
+</body>
+</html>
